@@ -42,4 +42,5 @@ services:
       - 9600:9600
     volumes:
       - ./pipeline/:/usr/share/logstash/pipeline/
+      - ./jvm.options:/usr/share/logstash/config/jvm.options
     command: ["--pipeline.workers", "1"]
