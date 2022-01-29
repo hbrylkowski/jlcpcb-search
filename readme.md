@@ -1,4 +1,5 @@
 #Index in elasticsearch JLCPCB parts
+
 ![preview](docs/img.png)
 
 ## Description
@@ -28,7 +29,7 @@ Now to create new index pattern
 ![preview](docs/index_pattern.png)
 
 let's catch our index called `jlc` and use timestamp
-![preview](docs/index_pattern.png)
+![preview](docs/define_pattern.png)
 
 After that simply go back to discover card 
 ![preview](docs/homepage.png)
