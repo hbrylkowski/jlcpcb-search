@@ -1,4 +1,4 @@
-#Elasticsearch with JLCPCB parts
+# Elasticsearch with JLCPCB parts!
 
 ![preview](docs/img.png)
 
