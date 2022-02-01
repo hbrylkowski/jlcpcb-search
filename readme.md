@@ -1,4 +1,4 @@
-#Index in elasticsearch JLCPCB parts
+#Elasticsearch with JLCPCB parts
 
 ![preview](docs/img.png)
 
@@ -13,25 +13,21 @@ and update them.
 - docker-compose
 
 ### To start everything
-Simply run 
+Startup kibana and logstash:
 ```shell
 docker-compose up -d 
 ```
+Then go to http://localhost:5601 and wait until kibana is ready.
+Now start filling up data:
+```shell
+docker-compose --profile logstash up -d
+```
 
-Then after few minutes when logstash finishes with initial file you 
-need to go to grafana `localhost:5601`. There you need to 
-set up index pattern.
+And setup kibana:
+```shell
+docker-compose --profile setup_kibana up -d
+```
 
-Go to hamburger menu and to discover part
-![preview](docs/homepage.png)
-
-Now to create new index pattern
-![preview](docs/index_pattern.png)
-
-let's catch our index called `jlc` and use timestamp
-![preview](docs/define_pattern.png)
-
-After that simply go back to discover card 
-![preview](docs/homepage.png)
-
-And you can search!
+After that simply go to:
+http://localhost:5601/app/discover#/view/388e1160-835b-11ec-993e-6baad04d7244
+And search!

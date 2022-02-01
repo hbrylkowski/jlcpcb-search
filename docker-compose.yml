@@ -1,4 +1,4 @@
-version: '3'
+version: '3.9'
 services:
   # Elasticsearch Docker Images: https://www.docker.elastic.co/
   elasticsearch:
@@ -44,3 +44,11 @@ services:
       - ./pipeline/:/usr/share/logstash/pipeline/
       - ./jvm.options:/usr/share/logstash/config/jvm.options
     command: ["--pipeline.workers", "1"]
+    profiles: ["logstash"]
+
+  prepare_kibana:
+    image: alpine/curl:3.14
+    volumes:
+      - ./kibana_objects/:/kibana_objects/
+    command: '-X POST http://kibana:5601/api/saved_objects/_import?overwrite=true -H "kbn-xsrf: true" --form file=@/kibana_objects/export.ndjson'
+    profiles: ["setup_kibana"]
